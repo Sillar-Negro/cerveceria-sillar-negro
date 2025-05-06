@@ -4,238 +4,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cervecería Artesanal Sillar Negro</title>
+  <title>Cervecería Sillar Negro S.A.C.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-main: #fff8f0;
+      --text-dark: #2e1a0f;
+      --accent-1: #3c1f1f;
+      --accent-2: #f9b10f;
+      --accent-3: #8c1c13;
+      --highlight: #fff2dc;
+    }
     * {
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+    }
+    body {
+      font-family: 'Changa', sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-dark);
     }
-
-    body {
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
     header {
-      background-color: #222;
-      color: #fff;
-      padding: 20px 0;
+      background: var(--accent-1);
+      color: white;
+      padding: 1em;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-
-    header .logo-container img {
-      width: 150px;
-      margin-bottom: 10px;
+    header h1 {
+      animation: aparecer 1s ease-out;
     }
-
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+      background: var(--accent-2);
+      padding: 0.75em;
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     nav a {
-      color: #fff;
-      margin: 0 20px;
+      color: var(--accent-1);
       text-decoration: none;
       font-weight: bold;
-      padding: 8px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
     }
-
     nav a:hover {
-      background-color: #444;
+      color: var(--accent-3);
     }
-
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      transition: opacity 0.6s ease-out;
+    section {
+      padding: 2em;
     }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #333;
+    section h2 {
+      font-size: 2em;
+      color: var(--accent-3);
+      margin-bottom: 0.5em;
+      border-bottom: 3px solid var(--accent-2);
+      display: inline-block;
+      padding-bottom: 5px;
     }
-
+    .hero {
+      background: url('https://images.unsplash.com/photo-1607082349567-3cd0e182e3b9?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.8em;
+      text-shadow: 2px 2px 6px #000;
+      border-bottom: 5px solid var(--accent-2);
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+      gap: 1em;
+      margin-top: 1em;
     }
-
     .gallery img {
       width: 100%;
       border-radius: 10px;
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
-
-    .beer-slider {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .beer-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .beer-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .beer-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .beer-card p {
-      font-size: 1rem;
-      color: #666;
-    }
-
-    /* Formulario de contacto */
     form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
       max-width: 600px;
       margin: 0 auto;
-      background-color: #fff;
-      padding: 30px;
+      background: var(--highlight);
+      padding: 2em;
       border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    input, textarea, button {
-      padding: 12px;
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      font-size: 1em;
     }
-
-    input:focus, textarea:focus {
-      border-color: #222;
-      outline: none;
-    }
-
     button {
-      background-color: #222;
-      color: #fff;
+      margin-top: 1em;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: var(--accent-1);
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-
     button:hover {
-      background-color: #444;
+      background: var(--accent-3);
     }
-
+    .highlight-box {
+      background: var(--accent-2);
+      padding: 1em;
+      border-radius: 10px;
+      margin-top: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
     footer {
-      background-color: #222;
-      color: #fff;
+      background: var(--accent-1);
+      color: white;
       text-align: center;
-      padding: 15px;
-      margin-top: 50px;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-    }
-
-    /* Animación de aparición */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1.5s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      padding: 1em;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="https://source.unsplash.com/150x150/?beer" alt="Cervecería Sillar Negro" class="logo">
-    </div>
-    <nav>
-      <a href="#sobre-nosotros">Sobre Nosotros</a>
-      <a href="#galeria">Galería</a>
-      <a href="#cervezas">Nuestras Cervezas</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <h1>Cervecería Artesanal Sillar Negro S.A.C.</h1>
+    <p>Orgullo arequipeño hecho cerveza</p>
   </header>
 
-  <section id="sobre-nosotros" class="section fade-in">
-    <h2>Sobre Nosotros</h2>
-    <p>En Cervecería Artesanal Sillar Negro, nos especializamos en la producción de cerveza artesanal de guiñapo, utilizando ingredientes de alta calidad y procesos que respetan la tradición cervecera. Nuestra pasión por la cerveza nos lleva a experimentar con nuevos sabores, sin perder de vista lo que hace única a nuestra bebida.</p>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Sobre Nosotros</a>
+    <a href="#productos">Producto</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio" class="hero">
+    <h2>Bienvenido a Sillar Negro</h2>
   </section>
 
-  <section id="galeria" class="section fade-in">
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos una cervecería artesanal arequipeña que rescata la tradición ancestral del guiñapo, un maíz negro usado para elaborar una cerveza única y con identidad. Nuestro compromiso es ofrecer una experiencia auténtica y de calidad, honrando nuestras raíces.</p>
+    <div class="highlight-box">
+      <strong>Ubicación:</strong> Arequipa, Perú<br>
+      <strong>Año de fundación:</strong> 2023<br>
+      <strong>Email:</strong> cerveceriasillarnegro@gmail.com
+    </div>
+  </section>
+
+  <section id="productos">
+    <h2>Nuestro Producto</h2>
+    <p><strong>Cerveza de guiñapo:</strong> Nuestra cerveza artesanal elaborada 100% con guiñapo es única en sabor, color y aroma. Esta bebida ancestral tiene un cuerpo robusto, notas tostadas y un final suave. Disponible en presentaciones de 330ml y 620ml.</p>
+    <img src="https://images.unsplash.com/photo-1606788075761-603db5463cd7?auto=format&fit=crop&w=800&q=80" alt="Cerveza guiñapo" style="width:100%; border-radius:10px; margin-top:1em;">
+  </section>
+
+  <section id="galeria">
     <h2>Galería</h2>
     <div class="gallery">
-      <img src="https://source.unsplash.com/400x300/?craft-beer" alt="Cerveza artesanal">
-      <img src="https://source.unsplash.com/400x300/?brewery" alt="Cervecería">
-      <img src="https://source.unsplash.com/400x300/?beer-bottle" alt="Botella de cerveza">
-      <img src="https://source.unsplash.com/400x300/?barley" alt="Ingredientes de cerveza">
+      <img src="https://images.unsplash.com/photo-1598472876168-5e8423783f08?auto=format&fit=crop&w=800&q=80" alt="Proceso de elaboración">
+      <img src="https://images.unsplash.com/photo-1587387119725-816d3d298f32?auto=format&fit=crop&w=800&q=80" alt="Botellas de cerveza">
+      <img src="https://images.unsplash.com/photo-1613470208961-ccd60bdc27cd?auto=format&fit=crop&w=800&q=80" alt="Evento cervecero">
     </div>
   </section>
 
-  <section id="cervezas" class="section fade-in">
-    <h2>Nuestra Cerveza</h2>
-    <div class="beer-slider">
-      <div class="beer-card">
-        <h3>Cerveza Guiñapo</h3>
-        <p>Una cerveza robusta, rica en sabor y tradición. Perfecta para los amantes de las cervezas oscuras.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto" class="section fade-in">
-    <h2>Contáctanos</h2>
-    <form action="https://formspree.io/f/mgeglwqa" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre" required />
-      <input type="email" name="email" placeholder="Tu correo" required />
-      <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <label>Nombre:<br /><input type="text" name="nombre" required /></label><br /><br />
+      <label>Correo:<br /><input type="email" name="correo" required /></label><br /><br />
+      <label>Mensaje:<br /><textarea name="mensaje" rows="5" required></textarea></label><br /><br />
       <button type="submit">Enviar</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Cervecería Sillar Negro S.A.C. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Cervecería Sillar Negro S.A.C. - Todos los derechos reservados</p>
   </footer>
-
-  <script>
-    // Animación de entrada al hacer scroll
-    const sections = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, { threshold: 0.5 });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
 </body>
 </html>
